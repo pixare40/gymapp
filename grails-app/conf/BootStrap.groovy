@@ -1,4 +1,9 @@
+
 import com.zola.gym.*
+
+import org.joda.time.*
+import org.joda.time.contrib.hibernate.*
+import org.jadira.usertype.dateandtime.joda.*
 
 
 class BootStrap {
@@ -14,7 +19,9 @@ class BootStrap {
             email:'amjad@yahoo.com',
             firstname:'Amjad',
             lastname:'Takrouri',
-            password:'amjad'
+            password:'amjad',
+            birthdate:new LocalDate(),
+            phoneNumber:7413346938
         ).save(failOnError:true)
         
         if(!secuser1.authorities.contains(adminRole)){

@@ -10,10 +10,6 @@ class HomeController {
             redirect controller: 'Admin', action:'index'
         }
         
-        else if(SpringSecurityUtils.ifAllGranted('ROLE_STAFF')){
-            redirect controller:'Doctor', action:'home'
-        }
-        
         else if(SpringSecurityUtils.ifAllGranted('ROLE_CUSTOMER')){
             redirect controller:'Patient', action:'home'
         }

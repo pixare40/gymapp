@@ -1,5 +1,9 @@
 package com.zola.gym
 
+import org.joda.time.*
+import org.joda.time.contrib.hibernate.*
+import org.jadira.usertype.dateandtime.joda.*
+
 class User {
 
 	transient springSecurityService
@@ -9,6 +13,10 @@ class User {
         String email
         String firstname
         String lastname
+        LocalDate birthdate
+        String phoneNumber
+        Subscription subscription
+    
 	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
@@ -22,6 +30,9 @@ class User {
                 email email:true
                 firstname nullable:false
                 lastname nullable:false
+                birthdate nullable:false
+                phoneNumber nullable:false, blank: false
+                subscription nullable:true, blank:true
 	}
 
 	static mapping = {
