@@ -14,6 +14,7 @@ class HomeController {
             redirect controller:'Client', action:'index' , 'home'
         }
         
+        
         else{
             view:'index'
         }
