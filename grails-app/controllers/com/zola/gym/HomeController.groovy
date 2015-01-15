@@ -7,17 +7,23 @@ class HomeController {
     def index() {
         
         if(SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')){
-            redirect controller: 'Admin', action:'index' , 'home'
+            redirect controller: 'Admin', action:'index'
         }
         
         else if(SpringSecurityUtils.ifAllGranted('ROLE_CUSTOMER')){
-            redirect controller:'Client', action:'index' , 'home'
+            redirect controller:'Customer', action:'index'
         }
-        
         
         else{
-            view:'index'
+            render view:'/index'
         }
     
+    }
+    
+    def home(){
+        render view:'index'
+    }
+    def appdetails(){
+        render view:'/index'
     }
 }

@@ -41,6 +41,9 @@ grails.resources.adhoc.includes = ['/images/**', '/css/**', '/js/**', '/plugins/
 // Legacy setting for codec used to encode data with ${}
 grails.views.default.codec = "html"
 
+//date data binding
+jodatime.format.html5 = true
+
 // The default scope for controllers. May be prototype, session or singleton.
 // If unspecified, controllers are prototype scoped.
 grails.controllers.defaultScope = 'singleton'
@@ -97,6 +100,19 @@ environments {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
+}
+
+//Paypal values
+environments {
+  production {
+     grails.paypal.server = "https://www.paypal.com/cgi-bin/webscr"
+     grails.paypal.email = "example@business.com"
+     grails.serverURL = "http://www.grails.org"		
+  }
+  development {
+     grails.paypal.server = "https://www.sandbox.paypal.com/cgi-bin/webscr"
+     grails.paypal.email = "kabajiegara-facilitator@live.com"
+  }
 }
 
 // log4j configuration

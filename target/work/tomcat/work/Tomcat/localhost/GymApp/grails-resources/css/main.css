@@ -47,7 +47,7 @@ body {
 }
 
 #grailsLogo {
-	background-color: #abbf78;
+	background-color: #F07818;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
@@ -107,7 +107,7 @@ img {
 }
 
 .footer {
-	background: #abbf78;
+	background: #F07818;
 	color: #000;
 	clear: both;
 	font-size: 0.8em;
@@ -132,7 +132,7 @@ img {
 }
 
 /* NAVIGATION MENU */
-
+/*
 .nav {
 	background-color: #efefef;
 	padding: 0.5em 0.75em;
@@ -199,7 +199,7 @@ img {
 
 .nav a.create {
 	background-image: url(../images/skin/database_add.png);
-}
+}*/
 
 /* CREATE/EDIT FORMS AND SHOW PAGES */
 

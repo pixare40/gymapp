@@ -52,7 +52,7 @@
 		<g:message code="user.birthdate.label" default="Birthdate" />
 		<span class="required-indicator">*</span>
 	</label>
-	
+                <joda:dateField name="birthdate" value="${userInstance.birthdate}"/>
 
 </div>
 
@@ -61,10 +61,12 @@
 		<g:message code="user.phoneNumber.label" default="Phone Number" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="phoneNumber" type="number" value="${userInstance.phoneNumber}" required=""/>
+	<g:textField name="phoneNumber" required="" value="${userInstance?.phoneNumber}"/>
 
 </div>
-
+        <br>
+        <br>
+<sec:ifAllGranted roles="ROLE_ADMIN">
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'subscription', 'error')} ">
 	<label for="subscription">
 		<g:message code="user.subscription.label" default="Subscription" />
@@ -110,3 +112,4 @@
 
 </div>
 
+</sec:ifAllGranted>

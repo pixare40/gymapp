@@ -4,6 +4,15 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
+                <r:require modules="bootstrap"/>
+                <link rel="stylesheet" href="${resource(dir: 'css', file: 'custom.styles.css')}" type="text/css">
+                <script>
+                    $(document).ready(function() {
+                        if (!Modernizr.inputtypes.date) {
+                            $("input[type=date]").datepicker({dateFormat: $.datepicker.W3C});
+                        }
+                    });
+                </script>
 	</head>
 	<body>
 		<a href="#create-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
