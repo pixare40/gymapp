@@ -1,0 +1,30 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 17, 2014, 3:50:56 PM
+    Author     : kegara
+*/
+body > div.container-fluid > nav > div > div.navbar-header > a{
+    color: #2e96db;
+    font-weight: bold;
+}
+#admin-menu > ul > li.active {
+    border-bottom: 2px solid #2e96db;
+}
+
+#loginButton{
+    text-align: center;
+    background-color: #2e96db;
+    color: white;
+    padding: 5px 20px 5px 20px;
+    width: 50px;
+}
+
+div.login-inner{
+    border: 1px solid #2e96db;
+}
+
+

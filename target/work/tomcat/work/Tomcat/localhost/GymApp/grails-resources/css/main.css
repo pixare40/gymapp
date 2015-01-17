@@ -44,10 +44,12 @@ body {
 	   -moz-box-shadow: 0 0 0.3em #255b17;
 	-webkit-box-shadow: 0 0 0.3em #255b17;
 	        box-shadow: 0 0 0.3em #255b17;
+                
 }
 
 #grailsLogo {
 	background-color: #F07818;
+        height: 300px;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
@@ -89,8 +91,9 @@ img {
 /* GENERAL */
 
 #grailsLogo a {
+    top:70px;
 	display: inline-block;
-	margin: 1em;
+        font-family: 'Anton', sans-serif;
 }
 
 .content {
@@ -107,7 +110,7 @@ img {
 }
 
 .footer {
-	background: #F07818;
+	background: #0078a3;
 	color: #000;
 	clear: both;
 	font-size: 0.8em;

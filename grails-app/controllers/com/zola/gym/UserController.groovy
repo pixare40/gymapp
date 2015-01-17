@@ -25,7 +25,8 @@ class UserController {
 
     @Transactional
     def save(User userInstance) {
-        def customerRole = Role.findByAuthority('ROLE_CUSTOMER')?:new Role(authority:'ROLE_CUSTOMER').save(failOnError:true)
+        def customerRole = Role.findByAuthority('ROLE_CUSTOMER')
+        def adminRole = Role.findByAuthority('ROLE_ADMIN')
         
         if (userInstance == null) {
             notFound()
@@ -38,8 +39,19 @@ class UserController {
         }
 
         userInstance.save flush:true
-        if(!userInstance.authorities.contains(customerRole)){
-            UserRole.create userInstance, customerRole
+        
+       
+        
+        if(params.role == null){
+            println "Oh NO"
+            if(!userInstance.authorities.contains(customerRole)){
+                UserRole.create userInstance, customerRole
+            }
+        }
+        else if (params.role == "Admin"){
+            if(!userInstance.authorities.contains(adminRole)){
+                UserRole.create userInstance, adminRole
+            }
         }
         request.withFormat {
             form multipartForm {

@@ -14,17 +14,20 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
+                <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
 		<g:layoutHead/>
 		<g:javascript library="application"/>
                 <g:javascript librar<y="jquery" plugin="jquery"/>
                 <jqui:resources components="datepicker" mode="normal" />
-                <g:javascript src="modernizr.js"></g:javascript>
+                <r:require modules="bootstrap"/>
 		<r:layoutResources />
+                
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><g:link controller="home" action="index" style="font-family: 'Montserrat', sans-serif; font-size: 40px; text-decoration: none; color: #fff">Gym App</g:link></div>
+            <div id="grailsLogo" role="banner" style='background-image: url(/GymApp/static/images/banner.jpg);background-repeat:no-repeat;background-size: cover;'><g:link controller="home" action="index" style="font-family: 'Anton', sans-serif; font-size: 40px; text-decoration: none; color: #fff">Bradford Gym <br/><span style="font-family: Verdana;">Web-Based Management System</span></g:link></div>
 		
                 <g:layoutBody/>
+                
 		<div class="footer" role="contentinfo"> &COPY; Information Engineering Report 2014</div>
                 <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<r:layoutResources />

@@ -15,13 +15,17 @@
                 </script>
 	</head>
 	<body>
+            <div class="container">
 		<a href="#create-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+		<sec:ifAllGranted roles="ROLE_ADMIN">
+                    <g:render template="/admin/menu"/>
+                </sec:ifAllGranted>
+                <sec:ifAllGranted roles="ROLE_CUSTOMER">
+                    <g:render template="/customer/menu"/>
+                    </sec:ifAllGranted>
+                    <sec:ifNotGranted roles="ROLE_ADMIN,ROLE_CUSTOMER">
+                        <g:render template="/home/menu"/>
+                    </sec:ifNotGranted>
 		<div id="create-user" class="content scaffold-create" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -43,5 +47,6 @@
 				</fieldset>
 			</g:form>
 		</div>
+            </div>
 	</body>
 </html>

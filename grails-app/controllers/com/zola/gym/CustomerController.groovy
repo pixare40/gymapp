@@ -60,11 +60,6 @@ class CustomerController {
         render view:'payzone', model:[payBundleInstanceList:paybundles, curuser:curuser]
     }
     
-    def mysubscription(){
-        def curuser = lookupUser()
-        def subscription = persistenceService.getSubscription(curuser)
-        render view:'mysubscription', model:[subscriptionInstance:subscription]
-    }
     
     def mycheckins(){
         def curuser = lookupUser()
@@ -73,7 +68,17 @@ class CustomerController {
     }
     
     def myaccount(){
+        def userInstance = lookupUser()
+        redirect userInstance
+    }
+    
+    def cancelsubscription(){
         def curuser = lookupUser()
-        respond curuser
+        if(curuser.subscription != null){
+            curuser.subscription = null
+            curuser.save(flush:true)
+            flash.message = "Subscription Cancelled Succesfully"
+            redirect action:'index', controller:'customer'
+        }
     }
 }

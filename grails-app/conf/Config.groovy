@@ -142,7 +142,7 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.zola.gym.User
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.zola.gym.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.zola.gym.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/**':                              ['permitAll'],
+	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
 	'/index.gsp':                     ['permitAll'],
 	'/assets/**':                     ['permitAll'],
@@ -150,6 +150,21 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
-        '/admin/**':                      ['ROLE_ADMIN']
+        '/admin/**':                      ['ROLE_ADMIN'],
+        '/customer/**':                   ['ROLE_CUSTOMER'],
+        '/user/create':                   ['permitAll'],
+        '/user/save':                     ['permitAll'],
+        '/payBundle/**':                  ['ROLE_ADMIN'],
+        '/home/index':                    ['permitAll'],
+        '/checkIn/**':                    ['permitAll'],
+        '/paypal/**':                     ['permitAll'],
+        '/user/show':                     ['permitAll'],
+        '/user/edit':                     ['ROLE_ADMIN','ROLE_CUSTOMER'],
+        '/user/**':                       ['ROLE_ADMIN'],
+        '/home/home':                     ['permitAll'],
+        '/home/contactus':                     ['permitAll'],
+        '/home/aboutus':                     ['permitAll'],
+        '/home/terms':                     ['permitAll'],
+        '/user/update':                   ['ROLE_ADMIN','ROLE_CUSTOMER']
 ]
 

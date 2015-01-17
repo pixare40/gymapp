@@ -17,6 +17,13 @@ class PurchaseFilters {
             after = { Map model ->
                 def user = User.get(request.payment.buyerId)
                 def item = PayBundle.get(request.payment.paymentItems[0].itemNumber)
+                if(user.subscription !=null){
+                    user.subscription.name = item.bundlename
+                    user.subscription.enddate = user.subscription.enddate.plusDays(item.duration)
+                    user.subscription.save(failOnError:true)
+                    user.save(flush:true)
+                }
+                else if(user.subscription == null){
                 def subs = new Subscription(
                     name:item.bundlename,
                     startdate:new LocalDate(),
@@ -25,6 +32,7 @@ class PurchaseFilters {
                 ).save(failOnError:true)
                 user.subscription = subs
                 user.save(failOnError:true)
+                }
             }
             afterView = { Exception e ->
 

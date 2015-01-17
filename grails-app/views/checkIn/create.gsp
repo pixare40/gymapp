@@ -4,6 +4,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'checkIn.label', default: 'CheckIn')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
+                
 	</head>
 	<body>
 		<a href="#create-checkIn" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

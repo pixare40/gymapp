@@ -2,11 +2,12 @@
 
 <head>
 <title><g:message code='spring.security.ui.login.title'/></title>
-<meta name='layout' content='register'/>
+<meta name="layout" content="main">
 </head>
 
 <body>
-
+<div class="container">
+    <g:render template="/home/menu"/>
 <p/>
 
 <div class="login s2ui_center ui-corner-all" style='text-align:center;'>
@@ -16,31 +17,16 @@
 
 	<h1><g:message code='spring.security.ui.login.signin'/></h1>
 
-	<table>
-		<tr>
-			<td><label for="username"><g:message code='spring.security.ui.login.username'/></label></td>
-			<td><input name="j_username" id="username" size="20" /></td>
-		</tr>
-		<tr>
-			<td><label for="password"><g:message code='spring.security.ui.login.password'/></label></td>
-			<td><input type="password" name="j_password" id="password" size="20" /></td>
-		</tr>
-		<tr>
-			<td colspan='2'>
-				<input type="checkbox" class="checkbox" name="${rememberMeParameter}" id="remember_me" checked="checked" />
-				<label for='remember_me'><g:message code='spring.security.ui.login.rememberme'/></label> |
-				<span class="forgot-link">
-					<g:link controller='register' action='forgotPassword'><g:message code='spring.security.ui.login.forgotPassword'/></g:link>
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td colspan='2'>
-				<s2ui:linkButton elementId='register' controller='register' messageCode='spring.security.ui.login.register'/>
-				<s2ui:submitButton elementId='loginButton' form='loginForm' messageCode='spring.security.ui.login.login'/>
-			</td>
-		</tr>
-	</table>
+	
+			<label for="username"><g:message code='spring.security.ui.login.username'/></label>
+			<input name="j_username" id="username" size="20" class="form-control" />
+		
+			<label for="password"><g:message code='spring.security.ui.login.password'/></label>
+                        <input type="password" name="j_password" id="password" size="20" class="form-control" />
+                        <br/>
+                        <s2ui:submitButton class="btn btn-default btn-lg" elementId='loginButton' form='loginForm' messageCode='spring.security.ui.login.login'/>
+			
+		
 
 	</div>
 	</form>
@@ -55,6 +41,6 @@ $(document).ready(function() {
 <s2ui:initCheckboxes/>
 
 </script>
-
+</div>
 </body>
 </html>

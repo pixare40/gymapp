@@ -15,7 +15,7 @@ class HomeController {
         }
         
         else{
-            render view:'/index'
+            render view:'index'
         }
     
     }
@@ -25,5 +25,17 @@ class HomeController {
     }
     def appdetails(){
         render view:'/index'
+    }
+    
+    def aboutus(){
+        
+    }
+    
+    def terms(){
+        
+    }
+    
+    def contactus(){
+        
     }
 }

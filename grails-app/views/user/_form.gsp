@@ -16,7 +16,7 @@
 		<g:message code="user.password.label" default="Password" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="password" required="" value="${userInstance?.password}"/>
+	<g:textField name="password" required="" value=""/>
 
 </div>
 
@@ -64,9 +64,22 @@
 	<g:textField name="phoneNumber" required="" value="${userInstance?.phoneNumber}"/>
 
 </div>
+
         <br>
         <br>
 <sec:ifAllGranted roles="ROLE_ADMIN">
+	
+<div class="fieldcontain required">
+<label for="role">
+		Role
+</label>
+<select name="role">
+    <option value="Customer">Customer</option>
+    <option value="Admin">Admin</option>
+    </select>
+</div>
+
+    
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'subscription', 'error')} ">
 	<label for="subscription">
 		<g:message code="user.subscription.label" default="Subscription" />

@@ -1,9 +1,12 @@
 <html>
 	<head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="layout" content="main">
 		<title>Transaction Complete</title>
 	</head>
 	<body id="body">
+            <div class="container text-center">
+                <br/>
+                <br/>
 		Your purchase is complete. Information for your reference can be seen below:
 		<div id="transactionSummary" class="transactionSummary">
 			<div class="transSummaryItem">
@@ -12,5 +15,7 @@
 			</div>
 			<g:render template="txsummary" model="[payment:payment]"/>
 		</div>
+                <g:link controller="home" action="index" class="btn btn-default btn-large">&#8606; Go Home</g:link>
+                </div>
 	</body>
 </html>

@@ -9,7 +9,7 @@
 <html>
   <head>
     <meta name="layout" content="main">
-    <title>Sample title</title>
+    <title><sec:loggedInUserInfo field="username"/> Dashboard</title>
     <r:require modules="bootstrap" />
   </head>
   <body class="body">
@@ -30,6 +30,7 @@
                 <g:if test="${activesubscription != null}">
                 You are subscribed to ${activesubscription.name}<br>
                 Your subscription ends on ${activesubscription.enddate}
+                <g:link action="cancelsubscription" class="btn btn-default"> Cancel Subscription</g:link>
                 </g:if>
                 <g:else>
                     You have no active subscriptions
@@ -59,7 +60,7 @@
             </fieldset>
         </div>
         <div class="col-xs-7">
-            <g:link controller="customer" action="checkin">Check-In</g:link>
+            <g:link controller="customer" action="checkin" class="btn btn-default btn-lg">Check-In</g:link>
         </div>
       </div>
   </body>

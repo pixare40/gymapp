@@ -4,9 +4,14 @@ package com.zola.gym
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import org.joda.time.*
+import org.joda.time.contrib.hibernate.*
+import org.jadira.usertype.dateandtime.joda.*
 
 @Transactional(readOnly = true)
 class CheckInController {
+    
+    def passwordEncoder
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -21,6 +26,51 @@ class CheckInController {
 
     def create() {
         respond new CheckIn(params)
+    }
+    
+    def checkin(){
+        render view:'checkin'
+    }
+    
+    def authorizecheckin(){
+        def loguser = User.findByEmail(params.email)
+        if(loguser == null){
+            flash.error = "Wrong email/password combination, please try again"
+            println "${loguser.firstname}"
+            redirect action:'checkin'
+        }
+        else{
+            if(!passwordEncoder.isPasswordValid(loguser.password,params.password,null)){
+                flash.error = "Wrong email/password combination, please try again"
+                println "Log user point"
+                redirect action:'checkin'
+            }
+            else{
+                if(loguser.subscription != null){
+                    def subscriptionenddate = loguser.subscription.enddate
+                    def currentdate = new LocalDate()
+                    def subday = subscriptionenddate.getDayOfYear()
+                    def curday = currentdate.getDayOfYear()
+
+                    if(curday<=subday){
+                        def newcheckin = new CheckIn()
+                        newcheckin.customer = loguser
+                        newcheckin.checkintime = new Date()
+                        newcheckin.save()
+                        flash.info = "Succesful Check in ${loguser.firstname}, Enjoy Your Workout"
+                        redirect action:'checkin'
+                    }
+                    else{
+                        flash.error = "Check-In unsuccesful, You do not have an active subscription. Login and purchase one"
+                        redirect action:'checkin'
+                    }
+                }
+                else{
+                    flash.error = "Check-In unsuccesful, You do not have an active subscription. Login and purchase one"
+                    redirect action:'checkin'
+                }
+            }
+        }
     }
 
     @Transactional

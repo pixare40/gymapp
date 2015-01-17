@@ -37,7 +37,7 @@ class BootStrap {
             phoneNumber:7413346938
         ).save(failOnError:true)
         
-        if(!secuser1.authorities.contains(adminRole)){
+        if(!secuser2.authorities.contains(customerRole)){
             UserRole.create secuser2, customerRole
         }
         
@@ -46,6 +46,7 @@ class BootStrap {
             price:'10',
             duration:'1'
         ).save(failOnError:true)
+        
         
         def bundle2 = new PayBundle(
             bundlename:'Week Pass',
