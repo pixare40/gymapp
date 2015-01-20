@@ -1,2 +1,2 @@
 # gymapp
-Gym Application
+This is a Gym Application built using Groovy on Grails
